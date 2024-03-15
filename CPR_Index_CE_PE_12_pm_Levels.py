@@ -8,7 +8,8 @@ from datetime import datetime
 from pytz import timezone
 import numpy as np
 import pandas as pd
-import telegram
+from  telegram import Bot
+import asyncio
 
 # def strRed(skk): return "\033[91m {}\033[00m".format(skk)
 # def strGreen(skk): return "\033[92m {}\033[00m".format(skk)
@@ -56,14 +57,14 @@ nse_pe_levels = nsedf_pe['PE_Levels'].loc[nsedf_pe.index[0]]
 bnf_ce_levels = bnfdf_ce['CE_Levels'].loc[bnfdf_ce.index[1]]
 bnf_pe_levels = bnfdf_pe['PE_Levels'].loc[bnfdf_pe.index[1]]
 
-bot = telegram.Bot(token=b_token)
+bot = Bot(token=b_token)
 
 #Notify Index values To Telegram Channel before 9AM
 if(intTime<9):
     #t_url = "https://api.telegram.org/bot6377307246:AAEuJAlBiQgDQEa03yNmKQJmZbXyQ0WINOk/sendMessage?chat_id=-996001230&text="+"======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE."+"\n----------------------------------------------"+"\nI AM NOT SEBI REG..!"+"\n-----------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n---------------------------------\n"+"WISH YOU PROFITABLE DAY..!"
     #  t_url = "https://api.telegram.org/bot5817461626:AAHp1IIIMkQGWFTqIuu84lYOoxlO8KS7CZo/sendMessage?chat_id=-703180529&text="+"======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE."+"\n----------------------------------------------"+"\nI AM NOT SEBI REG..!"+"\n-----------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n---------------------------------\n"+"WISH YOU PROFITABLE DAY..!"
     #  requests.post(t_url) 
-    bot.send_message(chat_id=channel_id,text="======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE."+"=========================\n"+"TRADE ONLY BTW 9:15 AM - 12:15 PM"+"\n----------------------------"+"\nI AM NOT SEBI REG..!"+"\n------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n----------------------------\n"+"WISH YOU PROFITABLE DAY..!"+"\n------------------------------")
+    asyncio.run(bot.send_message(chat_id=channel_id,text="======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE.\n"+"=========================\n"+"TRADE ONLY BTW 9:15 AM - 12:15 PM"+"\n----------------------------"+"\nI AM NOT SEBI REG..!"+"\n------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n----------------------------\n"+"WISH YOU PROFITABLE DAY..!"+"\n------------------------------"))
 c = datetime.now()
 runTm = c.strftime('%H:%M:%S')
 #Keep Running below code from 9AM to 3PM
