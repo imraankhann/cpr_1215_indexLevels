@@ -60,7 +60,7 @@ bnf_pe_levels = bnfdf_pe['PE_Levels'].loc[bnfdf_pe.index[1]]
 bot = Bot(token=b_token)
 
 #Notify Index values To Telegram Channel before 9AM
-if(intTime<10):
+if(intTime<9):
     #t_url = "https://api.telegram.org/bot6377307246:AAEuJAlBiQgDQEa03yNmKQJmZbXyQ0WINOk/sendMessage?chat_id=-996001230&text="+"======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE."+"\n----------------------------------------------"+"\nI AM NOT SEBI REG..!"+"\n-----------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n---------------------------------\n"+"WISH YOU PROFITABLE DAY..!"
     #  t_url = "https://api.telegram.org/bot5817461626:AAHp1IIIMkQGWFTqIuu84lYOoxlO8KS7CZo/sendMessage?chat_id=-703180529&text="+"======================\n"+nowTime+"\n======================"+"\nWELCOME TO AI BOT TRADING"+"\n======================"+"\nBOT STARTED SUCCESSFULLY..!"+"\n======================\n"+"TODAY's INDEX LEVELS\n"+"======================\n"+"NIFTY CE LEVEL: "+str(nse_ce_levels)+"\n"+"=========================\n"+"NIFTY PE LEVEL: "+str(nse_pe_levels)+"\n"+"=========================\n"+"BNF CE LEVEL: "+str(bnf_ce_levels)+"\n=========================\n"+"BNF PE LEVEL: "+str(bnf_pe_levels)+"\n=========================\n"+"NOTE : ONLY FOR EDUCATIONAL PURPOSE."+"\n----------------------------------------------"+"\nI AM NOT SEBI REG..!"+"\n-----------------------------------"+"\nTRADE AT YOUR OWN RISK..!"+"\n---------------------------------\n"+"WISH YOU PROFITABLE DAY..!"
     #  requests.post(t_url) 
@@ -68,12 +68,11 @@ if(intTime<10):
 c = datetime.now()
 runTm = c.strftime('%H:%M:%S')
 
-if(intTime>=14):
-    print("PROGRAM EXIT AT : ", runTm)
-    exit()
 #Keep Running below code from 9AM to 3PM
 if intTime >= 9 and intTime < 14:
         while(intTime<15 ):
+            if intTime>14:
+                break;
             c = datetime.now()
             runTime = c.strftime('%H:%M:%S')
             print("Nifty CE Levels : ",nse_ce_levels)
@@ -229,3 +228,6 @@ if intTime >= 9 and intTime < 14:
         
             time.sleep(120)
 
+if(intTime>=14):
+    print("PROGRAM EXIT AT : ", runTm)
+    exit()
