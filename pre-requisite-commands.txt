@@ -1,0 +1,45 @@
+python --version
+pip3 install protobuf==3.19.6
+python --version
+pip3 install protobuf==3.19.6
+python3 imrnseOptionChain.py
+pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+pip3 install --upgrade pip
+pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+ls
+python3 imrnseOptionChain.py
+python3 -m pip install numpy
+python3 imrnseOptionChain.py
+perl nse_data_get.pl
+cpan App::cpanminus
+sudo cpanm install JSON
+cpanm Vcf
+apt install cpanminus
+sudo apt-get install cpanminus
+sudo apt install cpanminus
+sudo dpkg --configure -a
+sudo apt install cpanminus
+sudo cpanm install JSON
+perl -MCPAN -e'install "LWP::Simple"'
+perl nse_data_get.pl
+vi nse_data_get.pl
+sudo cpan install DBI
+apt-get install libtext-csv-perl
+perl nse_data_get.pl
+sudo cpan install DBI
+vi imrnseOptionChain.py
+vi /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
+sudo passwd
+reboot
+"pre_install.txt" 254L, 4495B
+
+
+============================================================
+                 TMUX COMMANDS 
+============================================================
+To create New Tmux Session : tmux new -s mysession
+To Detach Tmux session : Ctrl + B + D
+To list Tmux Session : tmux ls
+To go inside existing session : tmux a -t mysession
+To Kill / delete current session : tmux kill-session -t mysession
